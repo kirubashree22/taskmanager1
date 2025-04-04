@@ -1,0 +1,257 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  /* Registration Container */
+  .registration-container {
+    display: flex;
+    width: 900px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Left Image Section */
+  .left-section {
+    width: 40%;
+  }
+  
+  .left-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Right Registration Form */
+  .right-section {
+    width: 60%;
+    padding: 40px;
+  }
+  
+  .right-section h2 {
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Input Groups */
+  .input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .input-group div {
+    width: 48%;
+  }
+  
+  label {
+    font-size: 14px;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+/* Gender Section */
+/* Gender section styling */
+.gender-section {
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+    gap: 10px; 
+  }
+  
+  /* Container for radio buttons */
+  .gender-options {
+    display: flex;
+    gap: 20px; /* Space between radio buttons */
+    align-items: center; 
+  }
+  
+  /* Styling radio buttons */
+  .gender-options input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    vertical-align: middle; 
+  }
+  
+  /* Label text */
+  .gender-options label {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+    cursor: pointer;
+  }
+  
+  
+  
+  
+  /* Submit Button */
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  
+  .submit-btn:hover {
+    background: #0056b3;
+  }
+  
+  /* Login Text */
+  .login-text {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .login-text a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .login-text a:hover {
+    text-decoration: underline;
+  }
+  
+
+  /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #a64bf4, #6c00f8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container */
+.login-container {
+    display: flex;
+    background: white;
+    width: 900px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Left Side (Login Box) */
+.login-box {
+    width: 40%;
+    padding: 40px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+p {
+    font-size: 14px;
+    color: gray;
+}
+
+p a {
+    color: #6c00f8;
+    text-decoration: none;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.login-btn {
+    width: 100%;
+    background: #6c00f8;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.or {
+    text-align: center;
+    margin: 20px 0;
+    color: gray;
+}
+
+.social-login {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.google-btn, .facebook-btn {
+    border: none;
+    padding: 10px;
+    width: 45%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.google-btn {
+    background: #dd4b39;
+    color: white;
+}
+
+.facebook-btn {
+    background: #3b5998;
+    color: white;
+}
+
+/* Right Side (Illustration) */
+.illustration {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+}
+
+.illustration img {
+    width: 90%;
+}

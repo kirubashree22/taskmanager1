@@ -1,0 +1,70 @@
+.task-list-container {
+    background: #1d1f23;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .search-create {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .search-box {
+    width: 250px;
+  }
+  
+  .create-btn {
+    background-color: #1890ff;
+    border-color: #1890ff;
+  }
+  
+  .create-btn:hover {
+    background-color: #40a9ff;
+    border-color: #40a9ff;
+  }
+  
+  .ant-table {
+    background: #282c34 !important;
+  }
+  
+  .ant-table-thead > tr > th {
+    background: #202328 !important;
+    color: white !important;
+    text-align: center;
+  }
+  
+  .ant-table-tbody > tr > td {
+    background: #282c34 !important;
+    color: white !important;
+    text-align: center;
+  }
+  
+  .status {
+    color: #4caf50;
+    font-weight: bold;
+  }
+  
+  .action-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .delete-icon {
+    color: red;
+    cursor: pointer;
+  }
+  
+  .edit-icon {
+    color: #1890ff;
+    cursor: pointer;
+  }
+  
