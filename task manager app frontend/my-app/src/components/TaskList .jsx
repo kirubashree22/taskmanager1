@@ -1,3 +1,4 @@
+// 1. Import necessary modules and components
 import React, { useState, useEffect } from "react";
 import { Table, Input, Button, Modal, Form, Select, message } from "antd";
 import { PlusOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
@@ -6,24 +7,23 @@ import { useNavigate } from "react-router-dom";
 const { Option } = Select;
 
 const TaskList = () => {
-  const [tasks, setTasks] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
-  const [searchText, setSearchText] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [editingTask, setEditingTask] = useState(null);
-  const [form] = Form.useForm();
-  const navigate = useNavigate();
+  // 2. Define and initialize component state
+  const [tasks, setTasks] = useState([]); // Stores task list
+  const [currentPage, setCurrentPage] = useState(1); // Current page for pagination
+  const [totalPages, setTotalPages] = useState(0); // Total pages from backend
+  const [searchText, setSearchText] = useState(""); // Search input text
+  const [loading, setLoading] = useState(false); // Loading state for fetch
+  const [isModalVisible, setIsModalVisible] = useState(false); // Modal visibility
+  const [editingTask, setEditingTask] = useState(null); // Task being edited
+  const [form] = Form.useForm(); // Ant Design form instance
+  const navigate = useNavigate(); // For navigation (e.g. logout redirect)
 
-  // Get token from either localStorage or sessionStorage
-
-  
+  // 3. Utility function to retrieve JWT token from storage
   const getToken = () => {
     return localStorage.getItem("token") || sessionStorage.getItem("token");
   };
 
-  // Fetch tasks from backend
+  // 4. Fetch tasks from backend using current pagination and search text
   const fetchTasks = async () => {
     setLoading(true);
     try {
@@ -40,8 +40,8 @@ const TaskList = () => {
       if (data.success) {
         const formatted = data.tasks.map((task, index) => ({
           ...task,
-          sno: (currentPage - 1) * 5 + index + 1,
-          createdDate: new Date(task.createdAt).toLocaleDateString(),
+          sno: (currentPage - 1) * 5 + index + 1, // Calculate serial number
+          createdDate: new Date(task.createdAt).toLocaleDateString(), // Format date
         }));
         setTasks(formatted);
         setTotalPages(data.totalPages);
@@ -53,39 +53,45 @@ const TaskList = () => {
       setLoading(false);
     }
   };
-  
 
+  // 5. Trigger task fetch on page load and when pagination or search text changes
   useEffect(() => {
     fetchTasks();
   }, [currentPage, searchText]);
 
-  // Search handler
+  // 6. Handle search input change and reset to first page
   const handleSearch = (e) => {
     setSearchText(e.target.value);
     setCurrentPage(1);
   };
 
+  // 7. Logout function clears local/session storage and redirects to login
   const handleLogout = () => {
-    localStorage.clear();        // Clears token and any stored values
-    sessionStorage.clear();      // Clears token and any session values
-    message.success("Logged out successfully");
-    navigate("/");               // Go back to login screen
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("savedEmail");
+    localStorage.removeItem("savedPassword");
+    localStorage.removeItem("rememberMe");
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("user");
+    navigate("/");
   };
-  
 
-  // Modal management
+  // 8. Open modal for task creation
   const handleCreate = () => {
     form.resetFields();
     setEditingTask(null);
     setIsModalVisible(true);
   };
 
+  // 9. Open modal with task data for editing
   const handleEdit = (task) => {
     setEditingTask(task);
     form.setFieldsValue(task);
     setIsModalVisible(true);
   };
 
+  // 10. Delete task by ID and refresh list
   const handleDelete = async (id) => {
     try {
       const token = getToken();
@@ -100,14 +106,16 @@ const TaskList = () => {
       message.error("Failed to delete task");
     }
   };
+
+  // 11. Redirect to login if token is not found
   const token = getToken();
-if (!token) {
-  message.error("Authentication token not found. Please login again.");
-  navigate("/");
-  return;
-}
+  if (!token) {
+    message.error("Authentication token not found. Please login again.");
+    navigate("/");
+    return;
+  }
 
-
+  // 12. Validate form and send request to create or update task
   const handleSave = () => {
     form.validateFields().then(async (values) => {
       const token = getToken();
@@ -143,6 +151,7 @@ if (!token) {
     });
   };
 
+  // 13. Define table column layout and actions
   const columns = [
     { title: "S.NO", dataIndex: "sno", key: "sno", align: "center" },
     { title: "ID", dataIndex: "id", key: "id", align: "center" },
@@ -169,6 +178,7 @@ if (!token) {
     },
   ];
 
+  // 14. Render UI: Header, Search, Table, Modal Form
   return (
     <div className="task-list-container">
       <div
@@ -194,19 +204,22 @@ if (!token) {
       </div>
 
       <Table
-        columns={columns}
-        dataSource={tasks}
-        loading={loading}
-        rowKey="id"
-        pagination={{
-          current: currentPage,
-          pageSize: 5,
-          total: totalPages * 5,
-          onChange: (page) => setCurrentPage(page),
-          showSizeChanger: false,
-        }}
-        bordered
-      />
+  columns={columns}
+  dataSource={tasks}
+  loading={loading}
+  rowKey="id"
+  pagination={{
+    current: currentPage,
+    pageSize: 5,
+    total: totalPages * 5,
+    onChange: (page) => setCurrentPage(page),
+    showSizeChanger: false,
+  }}
+  bordered
+  // scroll={{ y: 300 }} 
+/>
+
+
 
       <Modal
         title={editingTask ? "Edit Task" : "Create Task"}
@@ -243,4 +256,5 @@ if (!token) {
   );
 };
 
+// 15. Export component as default
 export default TaskList;

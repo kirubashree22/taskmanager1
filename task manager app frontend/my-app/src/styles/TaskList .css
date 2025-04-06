@@ -1,70 +1,117 @@
+/* ================================
+   Task List Container Styling
+================================ */
+
+/* Main container for the task list UI */
 .task-list-container {
-    background: #1d1f23;
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-  
-  .search-create {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .search-box {
-    width: 250px;
-  }
-  
-  .create-btn {
-    background-color: #1890ff;
-    border-color: #1890ff;
-  }
-  
-  .create-btn:hover {
-    background-color: #40a9ff;
-    border-color: #40a9ff;
-  }
-  
-  .ant-table {
-    background: #282c34 !important;
-  }
-  
-  .ant-table-thead > tr > th {
-    background: #202328 !important;
-    color: white !important;
-    text-align: center;
-  }
-  
-  .ant-table-tbody > tr > td {
-    background: #282c34 !important;
-    color: white !important;
-    text-align: center;
-  }
-  
-  .status {
-    color: #4caf50;
-    font-weight: bold;
-  }
-  
-  .action-icons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .delete-icon {
-    color: red;
-    cursor: pointer;
-  }
-  
-  .edit-icon {
-    color: #1890ff;
-    cursor: pointer;
-  }
-  
+  background: #1d1f23;        /* Dark background /
+  padding: 20px;              /* Space inside the container */
+  border-radius: 10px;        /* Rounded corners */
+  color: white;               /* Default text color */
+}
+
+/* ================================
+ Header Section
+================================ */
+
+/* Header contains title + buttons */
+.header {
+  display: flex;              /* Use flex layout for spacing */
+  justify-content: space-between; /* Title on left, buttons on right */
+  align-items: center;       /* Vertically center items */
+  margin-bottom: 15px;       /* Space below the header */
+}
+
+/* ================================
+ Search and Create Section
+================================ */
+
+/* Container for search input and create button */
+.search-create {
+  display: flex;              /* Flexbox layout */
+  gap: 10px;                  /* Space between search and create button */
+}
+
+/* Style for the search input box */
+.search-box {
+  width: 250px;               /* Fixed width */
+}
+
+/* ================================
+ Create Button Styling
+================================ */
+
+/* Primary button for creating a task */
+.create-btn {
+  background-color: #1890ff; /* Default blue */
+  border-color: #1890ff;
+}
+
+/* Hover effect for the create button */
+.create-btn:hover {
+  background-color: #40a9ff; /* Lighter blue on hover */
+  border-color: #40a9ff;
+}
+
+/* ================================
+ Ant Design Table Overrides
+================================ */
+
+/* Table background (Ant Design override) */
+.ant-table {
+  background: #282c34 !important; /* Force dark theme */
+}
+
+/* Table Header */
+.ant-table-thead > tr > th {
+  background: #202328 !important; /* Darker header */
+  color: white !important;        /* White text */
+  text-align: center;             /* Centered text */
+}
+
+/* Table Body Cells */
+.ant-table-tbody > tr > td {
+  background: #282c34 !important; 
+  color: white !important;
+  text-align: center;
+}
+
+/* ================================
+ Task Status Styling
+================================ */
+
+/* Style for status indicator text */
+.status {
+  color: #4caf50;           /* Green for active/completed status */
+  font-weight: bold;       
+}
+
+/* ================================
+ Action Icons (Edit/Delete)
+================================ */
+
+/* Container for edit/delete icons */
+.action-icons {
+  display: flex;             /* Align icons in a row */
+  justify-content: center;
+  gap: 10px;                 /* Spacing between icons */
+}
+
+/* Delete icon styling */
+.delete-icon {
+  color: red;                /* Red to indicate error */
+  cursor: pointer;           /* Pointer to show it's clickable */
+}
+
+/* Edit icon styling */
+.edit-icon {
+  color: #1890ff;           
+  cursor: pointer;
+}
+
+.table-container {
+  width: 900px;
+  height: 350px;
+  overflow: auto;
+}
+

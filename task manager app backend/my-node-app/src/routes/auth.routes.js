@@ -1,40 +1,39 @@
+// Import required modules
 const express = require("express");
-const { register, login,forgotPassword,resetPassword } = require("../controllers/auth.controller");
+
+// Import controller functions for auth routes
+const { register, login, forgotPassword, resetPassword } = require("../controllers/auth.controller");
+
+// Create a new Express router instance
 const router = express.Router();
-const sendEmail = require("../utils/sendEmail"); 
 
+// Import utility to send emails (for forgot password logic)
+
+const User = require("../models/user.model");
+const { Op } = require("sequelize");
+
+// ===========================================
+//  Define the routes for authentication
+// ===========================================
+
+// Route: POST /register
+// Registers a new user
 router.post("/register", register);
-router.post("/login", login);
-router.post("/forgot-password", forgotPassword);
-router.post("/reset-password/:token", resetPassword);
-router.post("/reset-password/:token", async (req, res) => {
-    const { token } = req.params;
-    const { newPassword } = req.body;
-  
-    try {
-      const user = await User.findOne({
-        where: {
-          resetToken: token,
-          resetTokenExpiry: { [Op.gt]: Date.now() },
-        },
-      });
-  
-      if (!user) {
-        return res.status(400).json({ error: "Invalid or expired token" });
-      }
-  
-      const hashedPassword = await bcrypt.hash(newPassword, 10);
-      user.password = hashedPassword;
-      user.resetToken = null;
-      user.resetTokenExpiry = null;
-  
-      await user.save();
-  
-      res.status(200).json({ message: "✅ Password has been reset!" });
-    } catch (error) {
-      console.error("Reset error:", error);
-      res.status(500).json({ error: "Server error." });
-    }
-  });
 
+// Route: POST /login
+//  Logs in an existing user
+router.post("/login", login);
+
+// Route: POST /forgot-password
+//  Handles request to send a reset link to user’s email
+router.post("/forgot-password", forgotPassword);
+
+// Route: POST /reset-password/:token
+//  Resets user’s password using a token from the email
+router.post("/reset-password/:token", resetPassword);
+
+
+
+
+// Export the router so it can be used in other files (like in app.js/index.js)
 module.exports = router;

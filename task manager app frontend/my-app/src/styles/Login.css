@@ -1,134 +1,186 @@
+/* 
+  Set up base styles for the entire page:
+  - Use Poppins font
+  - Center everything using flexbox
+  - Add a diagonal gradient background
+  - Take full height of the screen
+*/
 body {
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(135deg, #b97cff, #6b4eff);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  .container {
-    display: flex;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-    width: 900px;
-    overflow: hidden;
-  }
-  
-  .login-box {
-    flex: 1;
-    padding: 40px;
-  }
-  
-  h2 {
-    margin: 0;
-    font-size: 24px;
-  }
-  
-  p {
-    color: #666;
-    font-size: 14px;
-  }
-  
-  a {
-    color: #6b4eff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-top: 10px;
-    font-size: 14px;
-  }
-  
-  input {
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .forgot {
-    float: right;
-    font-size: 12px;
-  }
-
-  .remember {
-    display: flex;
-    align-items: center;
-    gap: 3px; /* Adjust spacing between checkbox and text */
-    font-size: 14px; /* Match text size */
-    color: #333; /* Adjust text color */
-    margin-top: 10px;
-    cursor: pointer; /* Add cursor pointer for better UX */
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #b97cff, #6b4eff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
+/* 
+  Main container box that wraps login form and illustration:
+  - Horizontal flex layout
+  - White background with rounded corners
+  - Drop shadow for elevation
+  - Fixed width and hidden overflow
+*/
+.container {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  width: 900px;
+  overflow: hidden;
+}
+
+/* 
+  Left-side section for the login form:
+  - Takes up equal space
+  - Adds padding for spacing
+*/
+.login-box {
+  flex: 1;
+  padding: 40px;
+}
+
+/* 
+  Error message style:
+  - Red text for visibility
+  - Slight bottom margin
+  - Smaller bold font
+*/
+.error-message {
+  color: red; 
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Header style for "Login" text */
+h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* General paragraph style: grey and smaller */
+p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* 
+  Style for all links:
+  - Purple color matching theme
+  - Bold with no underline
+*/
+a {
+  color: #6b4eff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* 
+  Layout for the form:
+  - Stack all elements vertically
+*/
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+  Label above inputs:
+  - Add spacing on top
+  - Small readable font
+*/
+label {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* 
+  Input fields:
+  - Add padding inside
+  - Light grey borders and rounded corners
+*/
+input {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* 
+  "Forgot password?" link style:
+  - Right-aligned
+  - Small font size
+*/
+.forgot {
+  float: right;
+  font-size: 12px;
+}
+
+/* 
+  Container for "Remember Me" checkbox:
+  - Horizontal layout with spacing
+  - Small text and dark color
+  - Cursor changes on hover
+*/
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* 
+  Style for checkbox input:
+  - Slightly larger size
+  - Custom accent color for theme
+  - Cursor changes to pointer
+*/
 .remember input {
-    width: 16px;
-    height: 16px;
-    accent-color: #6c5ce7; /* Adjust checkbox color to match theme */
-    cursor: pointer;
+  width: 16px;
+  height: 16px;
+  accent-color: #6c5ce7;
+  cursor: pointer;
 }
 
-    
-  
-  .login-btn {
-    background: #6b4eff;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 6px;
-    margin-top: 15px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .or-text {
-    text-align: center;
-    margin: 15px 0;
-    color: #999;
-  }
-  
-  .social-buttons {
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .google, .facebook {
-    padding: 10px;
-    width: 45%;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .google {
-    background: #ea4335;
-    color: white;
-  }
-  
-  .facebook {
-    background: #3b5998;
-    color: white;
-  }
-  
-  .illustration {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f5f5f5;
-  }
-  
-  .illustration img {
-    width: 80%;
-  }
-  
+/* 
+  Login button style:
+  - Purple background with white text
+  - Rounded corners and padding
+  - Bold text and cursor pointer
+*/
+.login-btn {
+  background: #6b4eff;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* 
+  Right-side image illustration container:
+  - Center image inside container
+  - Light grey background
+*/
+.illustration {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+}
+
+/* 
+  Style image inside illustration:
+  - Shrink to 80% of width
+*/
+.illustration img {
+  width: 80%;
+}

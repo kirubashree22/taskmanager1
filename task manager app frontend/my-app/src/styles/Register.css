@@ -1,76 +1,101 @@
-/* General Styles */
+/* =========================
+   General Page Styles
+========================= */
+
+/* 1. Apply base font and center everything */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #a64bf4, #6c00f8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    font-family: 'Arial', sans-serif; /* Set default font */
+    background: linear-gradient(135deg, #a64bf4, #6c00f8); /* Gradient background */
+    display: flex;                    /* Flex to center content */
+    justify-content: center;         /* Horizontally center */
+    align-items: center;             /* Vertically center */
+    height: 100vh;                   /* Full viewport height */
+    margin: 0;                       /* Remove default margin */
 }
+
+/* =========================
+   Grid Container for Form Inputs
+========================= */
+
+/* 2. Define a 2-column grid layout for form inputs */
 .form-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px 25px; 
+    display: grid;                          /* Use CSS Grid */
+    grid-template-columns: 1fr 1fr;         /* Two equal columns */
+    gap: 20px 25px;                         /* Row and column gap */
 }
 
+/* =========================
+   Registration Container
+========================= */
 
-/* Registration Container */
+/* 3. The main box that holds both left and right sections */
 .registration-container {
-    display: flex;
-    width: 900px;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-.form-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns */
-    gap: 20px;
+    display: flex;                          /* Flexbox layout */
+    width: 900px;                           /* Fixed width */
+    background: white;                      /* White background */
+    border-radius: 8px;                     /* Rounded corners */
+    overflow: hidden;                       /* Clip overflow content */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
+/* =========================
+   Input Field
+========================= */
+
+/* 4. Styling for all individual form inputs */
 .input-field {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px; 
+    width: 100%;                            /* Full width of container */
+    padding: 10px;                          /* Inner spacing */
+    margin-bottom: 15px;                    /* Space below */
 }
 
+/* =========================
+   Left Section (Image or Visual)
+========================= */
 
-/* Left Section */
 .left-section {
-    width: 40%;
-    background-color: #6c00f8;
+    width: 40%;                             /* 40% of the container width */
+    background-color: #6c00f8;              /* Solid background color */
 }
 
 .left-section img {
-    width: 100%;
+    width: 100%;                            /* Image fills container */
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;                      /* Maintain aspect ratio, cover whole area */
 }
 
-/* Right Section */
+/* =========================
+   Right Section (Form Inputs)
+========================= */
+
 .right-section {
-    width: 60%;
-    padding: 40px;
+    width: 60%;                             /* 60% of the container */
+    padding: 40px;                          /* Spacing inside */
 }
 
 .right-section h2 {
-    text-align: left;
+    text-align: left;                       /* Align heading to the left */
     font-size: 24px;
     margin-bottom: 20px;
 }
 
+/* =========================
+   Grouped Inputs (2 in one row)
+========================= */
+
 .input-group {
-    display: flex;
-    gap: 40px; 
-    margin-bottom: 20px; 
+    display: flex;                          /* Use flex layout */
+    gap: 40px;                              /* Space between the two inputs */
+    margin-bottom: 20px;                    /* Spacing below group */
 }
 
 .input-group div {
-    width: 100%; 
+    width: 100%;                            /* Make each input take equal space */
 }
 
+/* =========================
+   Labels and Form Fields
+========================= */
 
 label {
     font-size: 14px;
@@ -80,66 +105,104 @@ label {
 }
 
 input, select {
-    width: 100%;
+    width: 100%;                            /* Full width of container */
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc;                 /* Light border */
     border-radius: 5px;
     font-size: 14px;
 }
 
-/* Gender Section */
+/* =========================
+   Gender Section (Radio Buttons)
+========================= */
+
+/* 5. Wrapper for gender inputs */
 .gender-section {
     display: flex;
-    flex-direction: column; 
-    align-items: start; 
-    gap: 5px; 
+    flex-direction: column;                /* Stack vertically */
+    align-items: start;                    /* Align items to start */
+    gap: 5px;
 }
 
+/* 6. Container for gender options (male/female/other) */
 .gender-options {
     display: flex;
-    align-items: center; 
+    align-items: center;
     gap: 15px;
 }
 
+/* 7. Label wraps each radio + text */
 .gender-options label {
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
+/* 8. Align radio buttons properly */
 .gender-options input[type="radio"] {
     vertical-align: middle;
 }
 
+/* =========================
+   Submit Button
+========================= */
 
-/* Submit Button */
+/* 9. Button styling */
 .submit-btn {
     width: 100%;
     padding: 12px;
-    background: #007bff;
+    background: #007bff;                   /* Blue button */
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
-    cursor: pointer;
+    cursor: pointer;                       /* Pointer cursor on hover */
     margin-top: 15px;
 }
 
 .submit-btn:hover {
-    background: #0056b3;
+    background: #0056b3;                   /* Darker on hover */
 }
 
-/* Login Text */
+/* =========================
+   Bottom Login Text
+========================= */
+
+/* 10. Text below form for login link */
 .login-text {
     margin-top: 10px;
     text-align: center;
 }
 
+/* 11. Link styling */
 .login-text a {
     color: #007bff;
     text-decoration: none;
 }
 
 .login-text a:hover {
-    text-decoration: underline;
+    text-decoration: underline;            /* Underline on hover */
 }
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .input-wrapper input {
+    width: 100%;
+    padding-right: 40px; /* space for the eye icon */
+    box-sizing: border-box;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+    color: #666;
+  }
+  

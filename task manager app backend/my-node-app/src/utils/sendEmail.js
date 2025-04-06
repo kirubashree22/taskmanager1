@@ -10,6 +10,7 @@ const sendEmail = async ({ to, subject, text }) => {
     },
   });
 
+  console.log("Sending email now...");
   await transporter.sendMail({
     from: '"Support" <no-reply@example.com>', 
     to,
@@ -17,5 +18,6 @@ const sendEmail = async ({ to, subject, text }) => {
     text,
   });
 };
+console.log("Email sent successfully");
 
 module.exports = sendEmail;
